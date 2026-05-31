@@ -814,6 +814,24 @@ body {
     color: #721c24;
     /* border: 1px solid #f5c6cb; = 薄い赤の枠線 */
     border: 1px solid #f5c6cb;
+    /* ナビゲーション（メニュー）のスタイル */
+.navbar a:hover {
+    color: #ff69b4;
+}
+
+/* ★★★ ここに以下を追加 ★★★ */
+/* 講義情報テキスト */
+.course-info {
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1.4;
+}
+
+/* ========== 講義情報セクション ========== */
 }
 
 /* ========== フッター（ページの下部） ========== */
@@ -896,4 +914,30 @@ body {
         /* padding: 50px 20px; = 上下の余白を小さくする */
         padding: 50px 20px;
     }
+}/* ========== 講義情報バナー ========== */
+
+.course-info-banner {
+    /* 背景色：薄いグレー */
+    background-color: #f0f0f0;
+    /* 内側の余白 */
+    padding: 20px;
+    /* テキストを中央に配置 */
+    text-align: center;
+    /* 上下の余白 */
+    margin: 0;
+}
+
+.course-info-text {
+    /* 最大幅を制限して、読みやすくする */
+    max-width: 800px;
+    /* 左右の自動余白で中央配置 */
+    margin: 0 auto;
+    /* フォントサイズ */
+    font-size: 14px;
+    /* テキストの色 */
+    color: #666;
+    /* 行の高さ */
+    line-height: 1.6;
+    /* フォントの太さ */
+    font-weight: 500;
 }
