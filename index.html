@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- ページの文字コード設定（日本語対応） -->
+    <meta charset="UTF-8">
+    <!-- スマートフォンなど様々なデバイスに対応 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ブラウザのタブに表示されるページタイトル -->
+    <title>美容パック.jp - 週1回で肌が変わる</title>
+    <!-- CSSファイルをリンク（デザイン・レイアウト） -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- =========================================
+         ヘッダー（ページの上部）
+         ========================================= -->
+    <header class="header">
+        <div class="container">
+            <!-- ロゴ -->
+            <h1 class="logo">✨ 美容パック.jp</h1>
+            <!-- ナビゲーション（メニュー） -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#about">パックについて</a></li>
+                    <li><a href="#products">商品紹介</a></li>
+                    <li><a href="#benefits">効果</a></li>
+                    <li><a href="#contact">問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================================
+         ヒーロー（トップ画像エリア）- キャッチコピーが入ります
+         ========================================= -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- メインキャッチコピー -->
+            <h2 class="catchcopy-main">週1回のパックで<br>肌が変わる！</h2>
+            <!-- サブキャッチコピー -->
+            <p class="catchcopy-sub">毎日の疲れた肌を、プロ級のスキンケアで生まれ変わらせましょう</p>
+            <!-- ボタン -->
+            <button class="hero-btn" onclick="smoothScroll('#products')">商品を見る</button>
+        </div>
+    </section>
+
+    <!-- =========================================
+         パックについてのセクション
+         ========================================= -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">美容パックとは？</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    美容パックは、忙しい女性のための時短美容アイテムです！<br>
+                    週に1回、たった10分のケアで、化粧水や美容液の効果を数倍に引き出せます。<br>
+                    肌の悩みに合わせて、ぴったりのパックが見つかります。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         商品紹介セクション
+         ========================================= -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">おすすめ美容パック</h2>
+            
+            <!-- 商品を格子状に配置するエリア -->
+            <div class="products-wrapper">
+
+                <!-- =================== 商品1：保湿パック =================== -->
+                <article class="product-card">
+                    <!-- 商品の絵文字アイコン -->
+                    <div class="product-icon">💧</div>
+                    <!-- 商品名 -->
+                    <h3 class="product-title">極潤モイスチャーパック</h3>
+                    <!-- 価格 -->
+                    <p class="product-price">¥2,980</p>
+                    
+                    <!-- 商品の特徴3つ（重要なポイント） -->
+                    <div class="product-features">
+                        <!-- 特徴1 -->
+                        <div class="feature">
+                            <span class="feature-badge">①</span>
+                            <h4 class="feature-title">深い保湿力</h4>
+                            <p class="feature-text">肌の深層まで潤いを届け、乾燥からしっかり守ります</p>
+                        </div>
+                        <!-- 特徴2 -->
+                        <div class="feature">
+                            <span class="feature-badge">②</span>
+                            <h4 class="feature-title">ふっくら肌へ</h4>
+                            <p class="feature-text">ヒアルロン酸配合でみずみずしい肌を実現</p>
+                        </div>
+                        <!-- 特徴3 -->
+                        <div class="feature">
+                            <span class="feature-badge">③</span>
+                            <h4 class="feature-title">敏感肌もOK</h4>
+                            <p class="feature-text">無添加で肌に優しく、安心して使えます</p>
+                        </div>
+                    </div>
+                    <!-- 詳細ボタン -->
+                    <button class="product-btn" onclick="handleProductClick('保湿パック')">詳しく見る</button>
+                </article>
+
+                <!-- =================== 商品2：美白パック =================== -->
+                <article class="product-card">
+                    <!-- 商品の絵文字アイコン -->
+                    <div class="product-icon">✨</div>
+                    <!-- 商品名 -->
+                    <h3 class="product-title">シャイニングホワイトパック</h3>
+                    <!-- 価格 -->
+                    <p class="product-price">¥3,480</p>
+                    
+                    <!-- 商品の特徴3つ（重要なポイント） -->
+                    <div class="product-features">
+                        <!-- 特徴1 -->
+                        <div class="feature">
+                            <span class="feature-badge">①</span>
+                            <h4 class="feature-title">明るい肌へ</h4>
+                            <p class="feature-text">くすみをスッキリ取り除き、透明感のある肌に</p>
+                        </div>
+                        <!-- 特徴2 -->
+                        <div class="feature">
+                            <span class="feature-badge">②</span>
+                            <h4 class="feature-title">シミ予防</h4>
+                            <p class="feature-text">ビタミンC配合でメラニン生成を効果的に抑制</p>
+                        </div>
+                        <!-- 特徴3 -->
+                        <div class="feature">
+                            <span class="feature-badge">③</span>
+                            <h4 class="feature-title">ツヤツヤ肌</h4>
+                            <p class="feature-text">美白しながら光沢感のある肌に仕上がります</p>
+                        </div>
+                    </div>
+                    <!-- 詳細ボタン -->
+                    <button class="product-btn" onclick="handleProductClick('美白パック')">詳しく見る</button>
+                </article>
+
+                <!-- =================== 商品3：エイジングケアパック =================== -->
+                <article class="product-card">
+                    <!-- 商品の絵文字アイコン -->
+                    <div class="product-icon">🌹</div>
+                    <!-- 商品名 -->
+                    <h3 class="product-title">リフトアップエイジングパック</h3>
+                    <!-- 価格 -->
+                    <p class="product-price">¥4,280</p>
+                    
+                    <!-- 商品の特徴3つ（重要なポイント） -->
+                    <div class="product-features">
+                        <!-- 特徴1 -->
+                        <div class="feature">
+                            <span class="feature-badge">①</span>
+                            <h4 class="feature-title">ハリ・弾力UP</h4>
+                            <p class="feature-text">コラーゲン配合で若々しい肌を取り戻します</p>
+                        </div>
+                        <!-- 特徴2 -->
+                        <div class="feature">
+                            <span class="feature-badge">②</span>
+                            <h4 class="feature-title">シワ改善</h4>
+                            <p class="feature-text">引き締め成分でシワを目立たなくします</p>
+                        </div>
+                        <!-- 特徴3 -->
+                        <div class="feature">
+                            <span class="feature-badge">③</span>
+                            <h4 class="feature-title">フェイスラインすっきり</h4>
+                            <p class="feature-text">毎週のケアで5歳若く見える肌を実現</p>
+                        </div>
+                    </div>
+                    <!-- 詳細ボタン -->
+                    <button class="product-btn" onclick="handleProductClick('エイジングケアパック')">詳しく見る</button>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         パックの効果・メリットセクション
+         ========================================= -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">美容パックの効果</h2>
+            
+            <!-- 効果を4つ並べるエリア -->
+            <div class="benefits-wrapper">
+                <!-- 効果1 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌟</div>
+                    <h3 class="benefit-title">短時間で効果</h3>
+                    <p class="benefit-text">たった10分で化粧水の数倍の効果が得られます</p>
+                </div>
+                <!-- 効果2 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">💪</div>
+                    <h3 class="benefit-title">肌トラブル軽減</h3>
+                    <p class="benefit-text">ニキビやくすみなど様々な肌トラブルに対応</p>
+                </div>
+                <!-- 効果3 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎀</div>
+                    <h3 class="benefit-title">気分もリフレッシュ</h3>
+                    <p class="benefit-text">パックの時間がストレス解消のリラックスタイムに</p>
+                </div>
+                <!-- 効果4 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">💎</div>
+                    <h3 class="benefit-title">プロ級の仕上がり</h3>
+                    <p class="benefit-text">自宅にいながらエステ級のケアが実現</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         使い方のステップセクション
+         ========================================= -->
+    <section class="how-to-use">
+        <div class="container">
+            <h2 class="section-title">かんたん使い方ガイド</h2>
+            
+            <!-- 4つのステップを並べるエリア -->
+            <div class="steps-wrapper">
+                <!-- ステップ1 -->
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">洗顔</h3>
+                    <p class="step-text">顔をやさしく洗い、タオルで水分をしっかりふき取ります</p>
+                </div>
+                <!-- ステップ2 -->
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">パック塗布</h3>
+                    <p class="step-text">目や口の周りを避けて、顔全体に均等に塗ります</p>
+                </div>
+                <!-- ステップ3 -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">待つ</h3>
+                    <p class="step-text">10～15分間、パックが乾くまでゆっくり待ちます</p>
+                </div>
+                <!-- ステップ4 -->
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">洗い流す</h3>
+                    <p class="step-text">ぬるま湯でやさしく洗い流し、化粧水で整えます</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         お問い合わせセクション
+         ========================================= -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            
+            <!-- コンタクトフォーム -->
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <!-- お名前入力 -->
+                <div class="form-group">
+                    <label for="name">お名前</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="山田太郎" 
+                        required
+                    >
+                </div>
+
+                <!-- メールアドレス入力 -->
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="example@gmail.com" 
+                        required
+                    >
+                </div>
+
+                <!-- メッセージ入力 -->
+                <div class="form-group">
+                    <label for="message">ご質問・ご意見</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="5" 
+                        placeholder="商品やサービスについてのご質問をお気軽にどうぞ"
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- 送信ボタン -->
+                <button type="submit" class="contact-btn">送信する</button>
+            </form>
+
+            <!-- フォーム送信後のメッセージを表示するエリア -->
+            <div id="formMessage" class="form-message"></div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         フッター（ページの下部）
+         ========================================= -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 美容パック.jp - 週1回で肌が変わる</p>
+            <p class="footer-sub">※本サイトはデモンストレーション目的で作成されています</p>
+        </div>
+    </footer>
+
+    <!-- JavaScriptファイルをリンク（インタラクティブな機能） -->
+    <script src="script.js"></script>
+</body>
+</html>

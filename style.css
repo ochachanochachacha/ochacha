@@ -1,0 +1,899 @@
+/* ================================================================
+   美容パック紹介サイト - CSSスタイルシート
+   
+   このファイルは、HTMLで作成したウェブサイトの見た目・色・レイアウト
+   などのデザインを定義しています。
+   
+   初心者向けに詳しくコメントを入れているので、
+   各セクションの意味を理解しながら読んでください。
+   ================================================================ */
+
+/* ========== 基本的なリセット・全体設定 ========== */
+
+/* 
+   すべての HTML 要素に対する基本設定
+   * は「すべての要素」を意味します
+*/
+* {
+    /* margin: 要素の外側の余白（初期値をなしにする） */
+    margin: 0;
+    /* padding: 要素の内側の余白（初期値をなしにする） */
+    padding: 0;
+    /* 
+       box-sizing: border-box
+       = width と padding を合わせたサイズを設定する
+       （わかりやすく、計算がしやすくなります）
+    */
+    box-sizing: border-box;
+}
+
+/* 
+   body = ページ全体の最外層
+   このセクションでページ全体の基本設定を行います
+*/
+body {
+    /* 
+       font-family: 使用するフォント
+       複数指定しており、左から順に試されます
+       （最初のフォントがない場合は次のフォントを使用）
+    */
+    font-family: 'Segoe UI', 'Hiragino Sans', 'メイリオ', sans-serif;
+    /* line-height: 行と行の距離（読みやすさに関わる） */
+    line-height: 1.6;
+    /* color: 基本的なテキストの色 */
+    color: #333;
+    /* background-color: ページ全体の背景色 */
+    background-color: #f8f8f8;
+}
+
+/* 
+   container: ページ内容の幅を制限して、中央に配置するクラス
+   これにより、画面が大きくても読みにくくならないようにします
+*/
+.container {
+    /* max-width: 最大幅（この幅を超えません） */
+    max-width: 1200px;
+    /* margin: 0 auto; = 左右の余白を自動で設定して中央に配置 */
+    margin: 0 auto;
+    /* padding: 0 20px; = 左右に 20px の内側余白を設定 */
+    padding: 0 20px;
+}
+
+/* ========== ヘッダー（上部ナビゲーション）のスタイル ========== */
+
+.header {
+    /* 
+       background-color: 背景色
+       白い背景で、上部ナビゲーションだと分かりやすくします
+    */
+    background-color: #fff;
+    /* 
+       box-shadow: 影をつける
+       0 2px 10px は (横の距離, 縦の距離, ぼかし) を表します
+       これでヘッダーに立体感が出ます
+    */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* 
+       position: sticky; top: 0;
+       = ページをスクロールしても、このヘッダーが上部に固定されます
+    */
+    position: sticky;
+    top: 0;
+    /* z-index: 100; = 他の要素より前面に表示する優先度を指定 */
+    z-index: 100;
+}
+
+/* ヘッダー内の container レイアウト */
+.header .container {
+    /* 
+       display: flex;
+       = flexbox レイアウトを使用
+       子要素が横方向に並びます
+    */
+    display: flex;
+    /* justify-content: space-between; = 子要素を両端に配置 */
+    justify-content: space-between;
+    /* align-items: center; = 子要素を縦方向で中央に配置 */
+    align-items: center;
+    /* padding: 内側の余白を指定 */
+    padding: 15px 20px;
+}
+
+/* ロゴのスタイル */
+.logo {
+    /* font-size: フォントサイズ */
+    font-size: 28px;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+    /* 
+       color: テキストの色
+       #ff69b4 はピンク色のコード
+    */
+    color: #ff69b4;
+    /* 
+       letter-spacing: 文字間隔
+       スペースを広げるとロゴっぽく見えます
+    */
+    letter-spacing: 2px;
+}
+
+/* ナビゲーション（メニュー）のスタイル */
+.navbar ul {
+    /* list-style: none; = リストの点を非表示にする */
+    list-style: none;
+    /* display: flex; = メニュー項目を横方向に並べる */
+    display: flex;
+    /* gap: 30px; = 各メニュー項目の間隔を 30px にする */
+    gap: 30px;
+}
+
+/* メニューのリンク */
+.navbar a {
+    /* 
+       text-decoration: none;
+       = 下線を非表示にする（通常、リンクには下線があります）
+    */
+    text-decoration: none;
+    /* color: リンクのテキスト色 */
+    color: #333;
+    /* font-weight: 500; = やや太いフォント */
+    font-weight: 500;
+    /* 
+       transition: color 0.3s;
+       = 色が変わるアニメーションを 0.3 秒かけてなめらかに行う
+    */
+    transition: color 0.3s;
+}
+
+/* マウスがリンクの上に乗ったときのスタイル */
+.navbar a:hover {
+    /* 
+       :hover は「マウスがその要素の上にある状態」を指します
+       この場合、リンクの上にマウスがあると、色がピンクに変わります
+    */
+    color: #ff69b4;
+}
+
+/* ========== ヒーロー（トップ画像エリア）のスタイル ========== */
+
+.hero {
+    /* 
+       background: linear-gradient()
+       = 背景を色のグラデーション（色が段々と変わる）にします
+       135deg は角度、#667eea から #ff69b4 へ段々と変わります
+    */
+    background: linear-gradient(135deg, #667eea 0%, #ff69b4 100%);
+    /* color: white; = テキストの色を白にする */
+    color: white;
+    /* padding: 内側の余白（上下100px, 左右20px） */
+    padding: 100px 20px;
+    /* text-align: center; = テキストを中央に配置 */
+    text-align: center;
+    /* min-height: 最小の高さ */
+    min-height: 400px;
+    /* 
+       display: flex;
+       flex-direction: column;
+       = 子要素を縦方向に並べる
+    */
+    display: flex;
+    flex-direction: column;
+    /* 
+       justify-content: center;
+       align-items: center;
+       = 子要素を中央に配置
+    */
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    /* max-width: 600px; = 最大幅を指定 */
+    max-width: 600px;
+    /* 
+       animation: fadeInDown 1s ease;
+       = "fadeInDown" というアニメーションを 1秒かけて実行
+       （定義は下の方にあります）
+    */
+    animation: fadeInDown 1s ease;
+}
+
+/* メインキャッチコピー */
+.catchcopy-main {
+    /* font-size: 48px; = 大きなフォントサイズ */
+    font-size: 48px;
+    /* margin-bottom: 20px; = 下に 20px の余白を設定 */
+    margin-bottom: 20px;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+    /* line-height: 1.3; = 行の高さを調整（見出しは詰めるのが一般的） */
+    line-height: 1.3;
+}
+
+/* サブキャッチコピー */
+.catchcopy-sub {
+    /* font-size: 18px; = フォントサイズ */
+    font-size: 18px;
+    /* margin-bottom: 30px; = 下に 30px の余白 */
+    margin-bottom: 30px;
+    /* 
+       opacity: 0.9;
+       = 透明度を設定（1 = 完全に見える、0 = 完全に透明）
+       ここでは 0.9 で少し薄くしています
+    */
+    opacity: 0.9;
+}
+
+/* ヒーローボタン */
+.hero-btn {
+    /* background-color: white; = 背景色を白に */
+    background-color: white;
+    /* color: #ff69b4; = テキストの色をピンクに */
+    color: #ff69b4;
+    /* border: none; = ボーダー（枠線）を非表示 */
+    border: none;
+    /* padding: 15px 40px; = 内側の余白 */
+    padding: 15px 40px;
+    /* font-size: 16px; = フォントサイズ */
+    font-size: 16px;
+    /* border-radius: 50px; = 角を丸くする（50px で左右がきれいな円弧になります） */
+    border-radius: 50px;
+    /* cursor: pointer; = マウスカーソルをポインター（指マーク）に変更 */
+    cursor: pointer;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+    /* transition: all 0.3s ease; = すべてのプロパティが 0.3 秒で変わる */
+    transition: all 0.3s ease;
+}
+
+/* ボタンがマウスの上に乗ったときのスタイル */
+.hero-btn:hover {
+    /* background-color: #ffe4f0; = 背景色を薄いピンクに */
+    background-color: #ffe4f0;
+    /* transform: translateY(-3px); = 3px 上に移動 */
+    transform: translateY(-3px);
+    /* box-shadow: 影をつける */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== アニメーション定義 ========== */
+
+/* 
+   @keyframes: アニメーションを定義します
+   これにより、要素を動かしたり、色を変えたりできます
+*/
+
+/* ふわっと上から下に出現するアニメーション */
+@keyframes fadeInDown {
+    /* from = アニメーション開始時のスタイル */
+    from {
+        opacity: 0;  /* 透明 */
+        transform: translateY(-30px);  /* 30px 上の位置 */
+    }
+    /* to = アニメーション終了時のスタイル */
+    to {
+        opacity: 1;  /* 完全に見える */
+        transform: translateY(0);  /* 元の位置 */
+    }
+}
+
+/* ふわっと下から上に出現するアニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);  /* 30px 下の位置 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== セクション共通のスタイル ========== */
+
+/* 
+   複数のセクションに対して、同じスタイルを一度に適用します
+   (セクションの背景色は別々に指定しています)
+*/
+.about,
+.products,
+.benefits,
+.how-to-use,
+.contact {
+    /* padding: 内側の余白（上下 80px, 左右 20px） */
+    padding: 80px 20px;
+}
+
+/* セクションのタイトル */
+.section-title {
+    /* font-size: 36px; = 大きなフォント */
+    font-size: 36px;
+    /* text-align: center; = 中央に配置 */
+    text-align: center;
+    /* margin-bottom: 50px; = 下に 50px の余白 */
+    margin-bottom: 50px;
+    /* color: #333; = テキストの色 */
+    color: #333;
+    /* 
+       position: relative;
+       = このセクションを基準に、子要素を配置可能にします
+       （下線を付けるために使用）
+    */
+    position: relative;
+    /* padding-bottom: 20px; = 下に 20px の内側余白 */
+    padding-bottom: 20px;
+}
+
+/* セクションタイトルの下線 */
+.section-title::after {
+    /* 
+       ::after は「要素の後ろに疑似要素を挿入」という意味です
+       ここでは、タイトルの下に下線を引いています
+    */
+    content: '';  /* 内容は空（見た目だけの要素） */
+    position: absolute;  /* 絶対配置（親を基準に配置） */
+    bottom: 0;  /* 下から 0px（つまり下に張り付く） */
+    left: 50%;  /* 左から 50%（つまり中央） */
+    transform: translateX(-50%);  /* 中央揃え補正 */
+    width: 100px;  /* 幅 */
+    height: 3px;  /* 高さ */
+    /* グラデーション背景（色が段々と変わる） */
+    background: linear-gradient(90deg, #667eea, #ff69b4);
+}
+
+/* ========== パックについてセクション ========== */
+
+.about {
+    /* background-color: #f8f8f8; = 少し灰色の背景 */
+    background-color: #f8f8f8;
+}
+
+.about-content {
+    /* 中央に配置するための max-width */
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-text {
+    /* text-align: center; = テキストを中央に配置 */
+    text-align: center;
+    /* font-size: 16px; = フォントサイズ */
+    font-size: 16px;
+    /* color: #666; = テキストの色（少し薄いグレー） */
+    color: #666;
+    /* line-height: 1.8; = 行の高さを広げて読みやすく */
+    line-height: 1.8;
+}
+
+/* ========== 商品セクション ========== */
+
+.products {
+    /* background-color: white; = 白い背景 */
+    background-color: white;
+}
+
+/* 商品を格子状に配置するエリア */
+.products-wrapper {
+    /* 
+       display: grid;
+       = グリッドレイアウト（表形式）を使用
+    */
+    display: grid;
+    /* 
+       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+       = 300px 以上の幅を持つ列を、自動で並べます
+       画面が大きければ 3列、小さければ 2列、さらに小さければ 1列になります
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* gap: 30px; = 列と行の間隔を 30px にする */
+    gap: 30px;
+}
+
+/* 各商品カード */
+.product-card {
+    /* background-color: white; = 背景を白に */
+    background-color: white;
+    /* border-radius: 15px; = 角を大きく丸くして、カード感を出す */
+    border-radius: 15px;
+    /* 影をつけて、奥行き感を表現 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* padding: 30px; = 内側の余白 */
+    padding: 30px;
+    /* text-align: center; = 内部のテキストを中央に配置 */
+    text-align: center;
+    /* 
+       transition: all 0.3s ease;
+       = すべてのプロパティが 0.3 秒で変わるアニメーション
+    */
+    transition: all 0.3s ease;
+}
+
+/* マウスがカード上に乗ったときのスタイル */
+.product-card:hover {
+    /* transform: translateY(-10px); = 10px 上に移動 */
+    transform: translateY(-10px);
+    /* 影を大きくして、浮いているように見える */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 商品の絵文字アイコン */
+.product-icon {
+    /* font-size: 60px; = 大きなサイズ */
+    font-size: 60px;
+    /* margin-bottom: 15px; = 下に 15px の余白 */
+    margin-bottom: 15px;
+}
+
+/* 商品名 */
+.product-title {
+    /* font-size: 20px; = フォントサイズ */
+    font-size: 20px;
+    /* margin-bottom: 10px; = 下に 10px の余白 */
+    margin-bottom: 10px;
+    /* color: #333; = テキストの色 */
+    color: #333;
+}
+
+/* 商品の価格 */
+.product-price {
+    /* font-size: 24px; = フォントサイズ */
+    font-size: 24px;
+    /* color: #ff69b4; = ピンク色で目立たせる */
+    color: #ff69b4;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+    /* margin-bottom: 20px; = 下に 20px の余白 */
+    margin-bottom: 20px;
+}
+
+/* 商品の特徴を入れるコンテナ */
+.product-features {
+    /* margin-bottom: 20px; = 下に 20px の余白 */
+    margin-bottom: 20px;
+    /* text-align: left; = テキストを左揃えにする（読みやすさのため） */
+    text-align: left;
+}
+
+/* 各特徴 */
+.feature {
+    /* 
+       margin-bottom: 15px;
+       padding-left: 35px;
+       position: relative;
+       = 左側のスペースに番号を配置するための設定
+    */
+    margin-bottom: 15px;
+    padding-left: 35px;
+    position: relative;
+}
+
+/* 特徴の番号（①、②、③） */
+.feature-badge {
+    /* 
+       display: inline-block;
+       = 幅と高さを指定可能にする
+    */
+    display: inline-block;
+    /* width と height で円形にする */
+    width: 25px;
+    height: 25px;
+    /* background-color: #ff69b4; = ピンク色 */
+    background-color: #ff69b4;
+    /* color: white; = テキストの色を白に */
+    color: white;
+    /* border-radius: 50%; = 円形にする */
+    border-radius: 50%;
+    /* line-height: 25px; = テキストを上下中央に配置 */
+    line-height: 25px;
+    /* 絶対配置で左側に固定 */
+    position: absolute;
+    left: 0;
+    /* text-align: center; = テキストを中央に */
+    text-align: center;
+    /* font-size: 12px; = フォントサイズ */
+    font-size: 12px;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+}
+
+/* 特徴のタイトル */
+.feature-title {
+    /* font-size: 14px; = フォントサイズ */
+    font-size: 14px;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+    /* color: #333; = テキストの色 */
+    color: #333;
+    /* margin-bottom: 5px; = 下に 5px の余白 */
+    margin-bottom: 5px;
+}
+
+/* 特徴の説明文 */
+.feature-text {
+    /* font-size: 13px; = フォントサイズ */
+    font-size: 13px;
+    /* color: #666; = 薄めのグレー */
+    color: #666;
+    /* line-height: 1.5; = 行の高さ */
+    line-height: 1.5;
+}
+
+/* 商品ボタン */
+.product-btn {
+    /* background: グラデーション背景 */
+    background: linear-gradient(90deg, #667eea, #ff69b4);
+    /* color: white; = テキストの色を白に */
+    color: white;
+    /* border: none; = ボーダーなし */
+    border: none;
+    /* padding: 12px 30px; = 内側の余白 */
+    padding: 12px 30px;
+    /* border-radius: 25px; = 角を丸くしてボタンっぽく */
+    border-radius: 25px;
+    /* cursor: pointer; = マウスカーソルをポインターに */
+    cursor: pointer;
+    /* transition: all 0.3s ease; = なめらかなアニメーション */
+    transition: all 0.3s ease;
+    /* font-size: 14px; = フォントサイズ */
+    font-size: 14px;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+}
+
+/* ボタンがマウスの上に乗ったときのスタイル */
+.product-btn:hover {
+    /* transform: translateY(-3px); = 3px 上に移動 */
+    transform: translateY(-3px);
+    /* 影をつける */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== 効果セクション ========== */
+
+.benefits {
+    /* background-color: #f8f8f8; = 少し灰色の背景 */
+    background-color: #f8f8f8;
+}
+
+/* 効果アイテムを並べるコンテナ */
+.benefits-wrapper {
+    display: grid;
+    /* 4列で並べる（画面が小さければ自動調整） */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* 各効果アイテム */
+.benefit-item {
+    /* background-color: white; = 白い背景 */
+    background-color: white;
+    /* padding: 30px; = 内側の余白 */
+    padding: 30px;
+    /* border-radius: 10px; = 角を丸く */
+    border-radius: 10px;
+    /* text-align: center; = テキストを中央に配置 */
+    text-align: center;
+    /* box-shadow: 影をつける */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 効果のアイコン */
+.benefit-icon {
+    /* font-size: 48px; = 大きなサイズ */
+    font-size: 48px;
+    /* margin-bottom: 15px; = 下に 15px の余白 */
+    margin-bottom: 15px;
+}
+
+/* 効果のタイトル */
+.benefit-title {
+    /* font-size: 18px; = フォントサイズ */
+    font-size: 18px;
+    /* margin-bottom: 10px; = 下に 10px の余白 */
+    margin-bottom: 10px;
+    /* color: #333; = テキストの色 */
+    color: #333;
+}
+
+/* 効果の説明文 */
+.benefit-text {
+    /* font-size: 14px; = フォントサイズ */
+    font-size: 14px;
+    /* color: #666; = テキストの色 */
+    color: #666;
+}
+
+/* ========== 使い方セクション ========== */
+
+.how-to-use {
+    /* background-color: white; = 白い背景 */
+    background-color: white;
+}
+
+/* ステップを並べるコンテナ */
+.steps-wrapper {
+    display: grid;
+    /* 4列で並べる */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* 各ステップ */
+.step-item {
+    /* background-color: #f8f8f8; = 少し灰色の背景 */
+    background-color: #f8f8f8;
+    /* padding: 30px 20px; = 内側の余白 */
+    padding: 30px 20px;
+    /* border-radius: 10px; = 角を丸く */
+    border-radius: 10px;
+    /* text-align: center; = テキストを中央に配置 */
+    text-align: center;
+    /* box-shadow: 影をつける */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ステップの番号 */
+.step-number {
+    /* display: inline-block; = 幅と高さを指定可能にする */
+    display: inline-block;
+    /* width と height で円形にする */
+    width: 50px;
+    height: 50px;
+    /* background: グラデーション背景 */
+    background: linear-gradient(135deg, #667eea, #ff69b4);
+    /* color: white; = テキストの色を白に */
+    color: white;
+    /* border-radius: 50%; = 完全な円形 */
+    border-radius: 50%;
+    /* font-size: 24px; = 大きなフォント */
+    font-size: 24px;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+    /* line-height: 50px; = テキストを上下中央に配置 */
+    line-height: 50px;
+    /* margin-bottom: 15px; = 下に 15px の余白 */
+    margin-bottom: 15px;
+}
+
+/* ステップのタイトル */
+.step-title {
+    /* font-size: 18px; = フォントサイズ */
+    font-size: 18px;
+    /* margin-bottom: 10px; = 下に 10px の余白 */
+    margin-bottom: 10px;
+    /* color: #333; = テキストの色 */
+    color: #333;
+}
+
+/* ステップの説明文 */
+.step-text {
+    /* font-size: 14px; = フォントサイズ */
+    font-size: 14px;
+    /* color: #666; = テキストの色 */
+    color: #666;
+}
+
+/* ========== お問い合わせセクション ========== */
+
+.contact {
+    /* background-color: white; = 白い背景 */
+    background-color: white;
+}
+
+/* コンタクトフォーム */
+.contact-form {
+    /* max-width: 600px; = 最大幅を制限 */
+    max-width: 600px;
+    /* margin: 0 auto; = 左右の自動余白で中央に配置 */
+    margin: 0 auto;
+    /* 上の余白 */
+    margin-top: 40px;
+    /* background-color: #f8f8f8; = 少し灰色の背景 */
+    background-color: #f8f8f8;
+    /* padding: 40px; = 内側の余白 */
+    padding: 40px;
+    /* border-radius: 10px; = 角を丸く */
+    border-radius: 10px;
+    /* box-shadow: 影をつける */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* フォームの各グループ（入力欄 1 つ分） */
+.form-group {
+    /* margin-bottom: 20px; = 下に 20px の余白 */
+    margin-bottom: 20px;
+}
+
+/* フォームのラベル（「お名前」などの文字） */
+.form-group label {
+    /* display: block; = 独立した行として配置 */
+    display: block;
+    /* margin-bottom: 8px; = 下に 8px の余白 */
+    margin-bottom: 8px;
+    /* color: #333; = テキストの色 */
+    color: #333;
+    /* font-weight: 500; = やや太いフォント */
+    font-weight: 500;
+}
+
+/* テキスト入力欄とテキストエリア（複数行入力） */
+.form-group input,
+.form-group textarea {
+    /* width: 100%; = 親要素の幅いっぱい */
+    width: 100%;
+    /* padding: 12px; = 内側の余白 */
+    padding: 12px;
+    /* border: 1px solid #ddd; = 薄いグレーの枠線 */
+    border: 1px solid #ddd;
+    /* border-radius: 5px; = 角を少し丸く */
+    border-radius: 5px;
+    /* font-family: inherit; = フォントを親から引き継ぐ */
+    font-family: inherit;
+    /* font-size: 14px; = フォントサイズ */
+    font-size: 14px;
+    /* transition: border-color 0.3s; = 枠線の色が 0.3 秒で変わる */
+    transition: border-color 0.3s;
+}
+
+/* 入力欄がクリック（フォーカス）されたときのスタイル */
+.form-group input:focus,
+.form-group textarea:focus {
+    /* outline: none; = 標準のフォーカス枠線を非表示 */
+    outline: none;
+    /* border-color: #667eea; = 枠線の色をブルーに変更 */
+    border-color: #667eea;
+    /* box-shadow: 枠線の色と同じ色で影をつける */
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+/* 送信ボタン */
+.contact-btn {
+    /* width: 100%; = 親要素の幅いっぱい */
+    width: 100%;
+    /* background: グラデーション背景 */
+    background: linear-gradient(135deg, #667eea, #ff69b4);
+    /* color: white; = テキストの色を白に */
+    color: white;
+    /* border: none; = ボーダーなし */
+    border: none;
+    /* padding: 14px; = 内側の余白 */
+    padding: 14px;
+    /* border-radius: 5px; = 角を丸く */
+    border-radius: 5px;
+    /* font-size: 16px; = フォントサイズ */
+    font-size: 16px;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+    /* cursor: pointer; = マウスカーソルをポインターに */
+    cursor: pointer;
+    /* transition: transform 0.3s; = 移動のアニメーション */
+    transition: transform 0.3s;
+}
+
+/* ボタンがマウスの上に乗ったときのスタイル */
+.contact-btn:hover {
+    /* transform: translateY(-2px); = 2px 上に移動 */
+    transform: translateY(-2px);
+}
+
+/* フォーム送信後のメッセージ */
+.form-message {
+    /* text-align: center; = テキストを中央に配置 */
+    text-align: center;
+    /* margin-top: 20px; = 上に 20px の余白 */
+    margin-top: 20px;
+    /* padding: 15px; = 内側の余白 */
+    padding: 15px;
+    /* border-radius: 5px; = 角を丸く */
+    border-radius: 5px;
+    /* 初期状態では非表示 */
+    display: none;
+    /* font-weight: bold; = 太いフォント */
+    font-weight: bold;
+}
+
+/* 成功メッセージ */
+.form-message.success {
+    /* display: block; = 表示 */
+    display: block;
+    /* background-color: #d4edda; = 薄い緑 */
+    background-color: #d4edda;
+    /* color: #155724; = 濃い緑のテキスト */
+    color: #155724;
+    /* border: 1px solid #c3e6cb; = 薄い緑の枠線 */
+    border: 1px solid #c3e6cb;
+}
+
+/* エラーメッセージ */
+.form-message.error {
+    /* display: block; = 表示 */
+    display: block;
+    /* background-color: #f8d7da; = 薄い赤 */
+    background-color: #f8d7da;
+    /* color: #721c24; = 濃い赤のテキスト */
+    color: #721c24;
+    /* border: 1px solid #f5c6cb; = 薄い赤の枠線 */
+    border: 1px solid #f5c6cb;
+}
+
+/* ========== フッター（ページの下部） ========== */
+
+.footer {
+    /* background-color: #333; = 濃いグレーの背景 */
+    background-color: #333;
+    /* color: white; = テキストの色を白に */
+    color: white;
+    /* text-align: center; = テキストを中央に配置 */
+    text-align: center;
+    /* padding: 40px 20px; = 内側の余白 */
+    padding: 40px 20px;
+}
+
+.footer p {
+    /* margin-bottom: 10px; = 下に 10px の余白 */
+    margin-bottom: 10px;
+}
+
+.footer-sub {
+    /* font-size: 12px; = 小さなフォントサイズ */
+    font-size: 12px;
+    /* opacity: 0.8; = 少し透明にして、目立たなくする */
+    opacity: 0.8;
+}
+
+/* ========== レスポンシブ対応（スマートフォン） ========== */
+
+/* 
+   @media は「特定の条件下でのみ適用される CSS」を定義します
+   ここでは「画面の幅が 768px 以下の場合」を指定しています
+   （スマートフォンはこの幅以下です）
+*/
+@media (max-width: 768px) {
+    /* ヘッダー */
+    .header .container {
+        /* flex-direction: column; = 子要素を縦方向に並べる */
+        flex-direction: column;
+        /* gap: 15px; = 間隔を小さくする */
+        gap: 15px;
+    }
+
+    /* ナビゲーション */
+    .navbar ul {
+        /* gap: 15px; = 間隔を小さくする */
+        gap: 15px;
+    }
+
+    /* メインキャッチコピー */
+    .catchcopy-main {
+        /* font-size: 32px; = フォントサイズを小さくする */
+        font-size: 32px;
+    }
+
+    /* サブキャッチコピー */
+    .catchcopy-sub {
+        /* font-size: 16px; = フォントサイズを小さくする */
+        font-size: 16px;
+    }
+
+    /* セクションタイトル */
+    .section-title {
+        /* font-size: 28px; = フォントサイズを小さくする */
+        font-size: 28px;
+    }
+
+    /* 商品グリッド */
+    .products-wrapper,
+    .benefits-wrapper,
+    .steps-wrapper {
+        /* grid-template-columns: 1fr; = 1列に変更 */
+        grid-template-columns: 1fr;
+    }
+
+    /* ヒーロー */
+    .hero {
+        /* min-height: 300px; = 最小の高さを小さくする */
+        min-height: 300px;
+        /* padding: 50px 20px; = 上下の余白を小さくする */
+        padding: 50px 20px;
+    }
+}
